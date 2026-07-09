@@ -79,7 +79,7 @@
 
                         playAgain = playAgain.ToUpper();//convert to uppercase so that it is not case sensitive
 
-                        if ((playAgain == "Y" || playAgain == "N"))
+                        if ((playAgain == Decision.Y.ToString()) || (playAgain == Decision.N.ToString()))
                         {
                             inputValid = true;
 
