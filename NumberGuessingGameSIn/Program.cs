@@ -6,17 +6,20 @@
         {
             bool gameOver = false;
             bool inputValid = false;
-            string difficulty = string.Empty;
 
             while (!gameOver)
             {
                 int maximum = 0;
+                string difficulty = string.Empty;
+                inputValid = false;
+
                 while (!inputValid)
                 {
                     Console.WriteLine("What difficulty would you like?(E),(M),(H)");
-                    string diifficulty = Console.ReadLine();
+                    difficulty = Console.ReadLine();
+                    difficulty = difficulty.ToUpper(); //convert to uppercase so that it is not case sensitive
 
-                    if ((diifficulty == "E") || (diifficulty == "M") || (diifficulty == "H"))
+                    if ((difficulty == "E") || (difficulty == "M") || (difficulty == "H"))
                     {
                         inputValid = true;
                     }
@@ -25,11 +28,12 @@
                         Console.WriteLine("Invalid input. Please enter E, M, or H.");
                         inputValid = false;
                     }
-                    if (diifficulty == "E")
+                }
+                    if (difficulty == "E")
                     {
                         maximum = 10;
                     }
-                    else if (diifficulty == "M")
+                    else if (difficulty == "M")
                     {
                         maximum = 50;
                     }
@@ -49,23 +53,24 @@
 
                         if (result == GuessResults.TooLow)
                         {
-                            Console.WriteLine("Your Guess is too low.Please try again")
+                            Console.WriteLine("Your Guess is too low.Please try again");
                         }
                         else if (result == GuessResults.TooHigh)
                         {
-                            Console.WriteLine("Your Guess is too low.Please try again")
+                            Console.WriteLine("Your Guess is too high.Please try again");
                         }
                         else if (result == GuessResults.Correct)
                         {
-                            Console.WriteLine("Your Guess is correct. You win!")
+                            Console.WriteLine("Your Guess is correct. You win!");
                                 guessed = true;
                         }
                         else if (result == GuessResults.OutOfLimits)
                         {
-                            Console.WriteLine("Out of Range, are you kidding me! Please try again")
+                            Console.WriteLine("Out of Range, are you kidding me! Please try again");
                         }
                     }
-                    string playAgain = string.Empty;
+                inputValid = false;
+                string playAgain = string.Empty;
 
                     while (!inputValid)
                     {
@@ -98,4 +103,4 @@
 
         }
     }
-}
+
